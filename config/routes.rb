@@ -1,4 +1,11 @@
 TicketsTogether::Application.routes.draw do
+  get "home/index"
+
+  get "users/new"
+  root to: "home#index"
+
+  resources :users
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
