@@ -13,6 +13,14 @@ class User < ActiveRecord::Base
     validates_presence_of :email
     validates_uniqueness_of :email 
 
+    def self.authenticate(email, password)
+        u = self.find_by_email(email)
+        if u && u.password_hash == BCrypt::Engine.hash_secret(password, u.password_salt)
+            return u
+        else
+            return nil
+        end
+    end
     private
 
     def encrypt_password

@@ -1,10 +1,9 @@
 TicketsTogether::Application.routes.draw do
-  get "home/index"
-
-  get "users/new"
   root to: "home#index"
 
+  get "log_out", to: "sessions#destroy"
   resources :users
+  resources :sessions
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
