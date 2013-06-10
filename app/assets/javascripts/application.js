@@ -17,6 +17,8 @@
 //= require ember-data
 //= require_self
 //= require tickets_together
-TicketsTogether = Ember.Application.create();
+TicketsTogether = Ember.Application.create({
+    LOG_TRANSITIONS: true
+});
 
 //= require_tree .
