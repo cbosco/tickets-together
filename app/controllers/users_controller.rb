@@ -12,7 +12,8 @@ class UsersController < ApplicationController
         if @user.save
             respond_to do |format|
                 format.html { redirect_to :root, notice: "Signed up!" }
-                format.json { render json: @user, status: :created }
+
+                format.json { render json: { user: @user.as_json(only: :email) }, status: :created }
             end
         else
             respond_to do |format|
