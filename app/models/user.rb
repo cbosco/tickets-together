@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
     validates_presence_of :password_confirmation, :on => :create
     validates_presence_of :email
     validates_uniqueness_of :email
+    validates :email, format: { :with => /(?>(?:[0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+)[a-zA-Z]{2,9}/, message: "%{value} is not a valid email address" }
 
     def self.authenticate(email, password)
         u = self.find_by_email(email)
@@ -22,6 +23,7 @@ class User < ActiveRecord::Base
             return nil
         end
     end
+
     private
 
     def encrypt_password
@@ -30,4 +32,5 @@ class User < ActiveRecord::Base
             self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
         end
     end
+
 end
