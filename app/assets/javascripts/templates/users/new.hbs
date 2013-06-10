@@ -1,0 +1,25 @@
+<form {{action save on="submit"}}>
+    <div class="control-group" {{bindAttr class="errors.email:error"}}>
+        <label for="user-email">Email</label>
+        {{view Ember.TextField valueBinding="email" id="user-email" required="true"}}
+        <span class="help-inline">
+            {{errors.email}}
+        </span>
+    </div>
+    <div class="control-group" {{bindAttr class="errors.password:error"}}>
+        <label for="user-password">Password</label>
+        {{view Ember.TextField valueBinding="password" type="password" id="user-password" required="true"}}
+        <span class="help-inline">
+            {{errors.password}}
+        </span>
+    </div>
+    <div class="control-group" {{bindAttr class="errors.passwordConfirmation:error"}}>
+        <label for="user-password-confirmation">Password confirmation</label>
+        {{view Ember.TextField valueBinding="passwordConfirmation" type="password" id="user-password-confirmation" required="true"}}
+        <span class="help-inline">
+            {{errors.passwordConfirmation}}
+        </span>
+    </div>
+    <button type="submit">Join</button>
+    <a {{action cancel}}>Cancel</a>
+</form>

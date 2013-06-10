@@ -1,3 +1,4 @@
 TicketsTogether.Router.map (match)->
-  # match('/').to('index')
-
+    this.resource('users', ->
+        this.route('new')
+    )
