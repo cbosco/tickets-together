@@ -2,8 +2,8 @@ TicketsTogether::Application.routes.draw do
   root to: "home#index"
 
   get "log_out", to: "sessions#destroy"
-  resources :users
-  resources :sessions
+  resources :users, only: [:new, :create]
+  resources :sessions, only: [:new, :create, :destroy]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
