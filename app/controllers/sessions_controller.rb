@@ -3,13 +3,23 @@ class SessionsController < ApplicationController
     end
 
     def create
-        user = User.authenticate params[:email], params[:password]
+        user = User.authenticate params[:session]
         if user
             session[:user_id] = user.id
-            redirect_to :root, notice: "Logged in!"
+
+            respond_to do |format|
+                format.html { redirect_to :root, notice: "Logged in!" }
+                format.json { render json: { session: user.as_json(only: :email) }, status: :created }
+            end
         else
-            flash.now.alert = "Invalid email or password"
-            render :new
+
+            respond_to do |format|
+                format.html {
+                    flash.now.alert = "Invalid email or password"
+                    render :new
+                }
+                format.json { render json: { errors: {email: "Invalid email or password"} }, status: :unprocessable_entity }
+            end
         end
     end
 

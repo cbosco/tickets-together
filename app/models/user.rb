@@ -15,7 +15,9 @@ class User < ActiveRecord::Base
     validates_uniqueness_of :email
     validates :email, format: { :with => /(?>(?:[0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+)[a-zA-Z]{2,9}/, message: "%{value} is not a valid email address" }
 
-    def self.authenticate(email, password)
+    def self.authenticate(params)
+        email = params[:email]
+        password = params[:password]
         u = self.find_by_email(email)
         if u && u.password_hash == BCrypt::Engine.hash_secret(password, u.password_salt)
             return u
