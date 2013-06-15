@@ -3,11 +3,11 @@ TicketsTogether.UsersNewRoute = Ember.Route.extend({
         TicketsTogether.User.createRecord()
     events:
         save: ->
-            @content.save()
+            @controller.content.save()
                 .then =>
-                    @transitionToRoute('index')
+                    @transitionTo('index')
         cancel: ->
-            @content.deleteRecord()
-            @transitionToRoute('index')
+            @controller.content.deleteRecord()
+            @transitionTo('index')
 })
 
