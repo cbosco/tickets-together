@@ -33,7 +33,7 @@ class UsersController < ApplicationController
         else
             respond_to do |format|
                 format.html
-                format.json { render json: { errors: {user: "Not logged in"} }, status: :unprocessable_entity }
+                format.json { render json: { }, status: :accepted }
             end
         end
     end
