@@ -23,8 +23,19 @@ class SessionsController < ApplicationController
         end
     end
 
+    def show
+        respond_to do |format|
+            format.html
+            format.json { render json: { session: current_user }, status: :accepted }
+        end
+    end
+
     def destroy
         session[:user_id] = nil
-        redirect_to :root, notice: "Logged out!"
+
+        respond_to do |format|
+            format.html { redirect_to :root, notice: "Logged out!" }
+            format.json { render json: {}, status: :accepted }
+        end
     end
 end
