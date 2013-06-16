@@ -22,4 +22,19 @@ class UsersController < ApplicationController
             end
         end
     end
+
+    def show
+        @user = current_user
+        unless @user.nil?
+            respond_to do |format|
+                format.html
+                format.json { render json: { user: @user.as_json(only: :email) } }
+            end
+        else
+            respond_to do |format|
+                format.html
+                format.json { render json: { errors: {user: "Not logged in"} }, status: :unprocessable_entity }
+            end
+        end
+    end
 end
