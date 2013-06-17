@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
     # password is not persistent in the DB
     attr_accessor :password
 
+    has_many :friendships
+    has_many :friends, :through => :friendships
 
     before_save :encrypt_password
 
@@ -24,6 +26,10 @@ class User < ActiveRecord::Base
         else
             return nil
         end
+    end
+
+    def as_json(options = {})
+        super options.merge(:only => [:id, :email])
     end
 
     private

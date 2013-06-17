@@ -1,0 +1,11 @@
+<h1>List of all users </h1>
+<ul>
+    {{#each user in controller}}
+        <li>
+            {{user.email}} 
+            {{#if currentUser.isSignedIn}}
+                (<a {{action addFriend user}}>Add friend</a>)
+            {{/if}}
+        </li>
+    {{/each}}
+</ul>
