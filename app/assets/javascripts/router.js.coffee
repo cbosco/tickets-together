@@ -2,7 +2,7 @@ TicketsTogether.Router.map (match)->
     @resource('users', ->
         @route('new')
     )
-    this.resource('sessions', ->
+    @resource('sessions', ->
         @route('new')
         @route('destroy')
     )
