@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
     has_many :friendships
     has_many :friends, :through => :friendships
 
+    has_many :interests
+    has_many :performers, :through => :interests
+
     before_save :encrypt_password
 
     validates_confirmation_of :password

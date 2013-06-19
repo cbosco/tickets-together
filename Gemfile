@@ -43,3 +43,5 @@ gem "bcrypt-ruby", "~> 3.0.1"
 
 # To use debugger
 # gem 'debugger'
+#
+gem 'seatgeek', git: 'https://github.com/bluefocus/seatgeek.git'

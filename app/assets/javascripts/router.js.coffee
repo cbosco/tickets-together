@@ -6,3 +6,7 @@ TicketsTogether.Router.map (match)->
         @route('new')
         @route('destroy')
     )
+    @resource('performers', ->
+        @route('new')
+        @route('destroy')
+    )
