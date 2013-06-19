@@ -8,7 +8,7 @@ class FriendshipsController < ApplicationController
                 format.html
                 format.json { 
                     render json: @friendships.as_json(
-                        only:[:friend_id, :email]
+                        only:[:friend_id], include: :friend
                 ) 
                 }
             end
