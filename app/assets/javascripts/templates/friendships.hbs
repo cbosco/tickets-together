@@ -1,0 +1,9 @@
+<h1>Your friends</h1>
+<ul>
+    {{#each friendship in controller}}
+        <li>
+            {{friendship.email}} 
+                (<a {{action removeFriend friendship}}>Remove friend</a>)
+        </li>
+    {{/each}}
+</ul>

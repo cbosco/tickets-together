@@ -3,7 +3,7 @@ TicketsTogether::Application.routes.draw do
   get "log_out", to: "sessions#destroy"
   resources :users, only: [:index, :new, :create, :show]
   resources :sessions, only: [:new, :create, :destroy, :show]
-  resources :friendships, only: [:new, :create]
+  resources :friendships, only: [:index, :create, :destroy]
   resources :interests, only: [:create, :destroy]
   resources :performers, only: [:index, :create]
 
