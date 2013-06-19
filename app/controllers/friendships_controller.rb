@@ -22,7 +22,11 @@ class FriendshipsController < ApplicationController
     end
 
     def create
-        @friendship = current_user.friendships.build(:friend_id => params[:friendship][:friend_id])
+        id = params[:friendship][:friend_id]
+        @friendship = current_user.friendships.find_by_friend_id(id)
+        if @friendship.nil?
+            @friendship = current_user.friendships.build(friend_id: id)
+        end
         if @friendship.save
             respond_to do |format|
                 format.html {
