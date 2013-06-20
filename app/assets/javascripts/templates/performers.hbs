@@ -1,7 +1,17 @@
-<ul>
+<ul class="thumbnails">
     {{#each performer in controller}}
-        <li>
-            {{performer.name}}
+        <li class="span3">
+
+            <div class="thumbnail">
+                <img {{bindAttr src="performer.image"}} />
+                <h3><a {{bindAttr href="performer.url"}}
+                    {{performer.name}}
+                </a></h3>
+                <a class="btn btn-small btn-inverse">
+                    <i class="icon icon-heart"></i>
+                    Favorite!
+                </a>
+            </div>
         </li>
     {{/each}}
 </ul>

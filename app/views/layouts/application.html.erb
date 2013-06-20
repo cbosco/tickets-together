@@ -8,22 +8,49 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
    <style>
+       /* bootstrap example */
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
-      .btn-large .icon { margin-right: 6px; }
-      .icon.icon-circle { display: none; }
-      .icon.icon-circle-blank { display: inherit; }
-      .icon.icon-heart { display: none; }
-      .icon.icon-heart-empty { display: inherit; }
-      .icon.icon-thumbs-up { display: none; }
-      .icon.icon-thumbs-up-alt { display: inherit; }
-      .active .icon-circle { display: inherit; }
-      .active .icon-circle-blank { display: none; }
-      .active .icon-heart { display: inherit; }
-      .active .icon-heart-empty { display: none; }
-      .active .icon-thumbs-up { display: inherit; }
-      .active .icon-thumbs-up-alt { display: none; }
+
+      /* nav */
+      .well .btn-large .icon { margin-right: 6px; }
+      .well .icon.icon-circle { display: none; }
+      .well .icon.icon-circle-blank { display: inherit; }
+      .well .icon.icon-heart { display: none; }
+      .well .icon.icon-heart-empty { display: inherit; }
+      .well .icon.icon-thumbs-up { display: none; }
+      .well .icon.icon-thumbs-up-alt { display: inherit; }
+      .well .active .icon-circle { display: inherit; }
+      .well .active .icon-circle-blank { display: none; }
+      .well .active .icon-heart { display: inherit; }
+      .well .active .icon-heart-empty { display: none; }
+      .well .active .icon-thumbs-up { display: inherit; }
+      .well .active .icon-thumbs-up-alt { display: none; }
+
+      /* performers */
+      .thumbnail {
+          position: relative;
+          height: 195px;
+      }
+      .thumbnail h3 {
+          position: absolute;
+          left: 4px;
+          bottom: 8px;
+          display: inline-block;
+          padding: 0 4px;
+          background: #fff;
+      }
+      .thumbnail h3 a {
+          color: inherit;
+      }
+      .thumbnail .btn {
+          position: absolute;
+          top: 12px;
+          right: 12px;
+
+      }
+
 
     </style>
 </head>
