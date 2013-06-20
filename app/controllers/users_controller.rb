@@ -40,7 +40,11 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = current_user
+        if params[:id] == 'current'
+            @user = current_user
+        else
+            @user = User.find(params[:id])
+        end
         unless @user.nil?
             respond_to do |format|
                 format.html
