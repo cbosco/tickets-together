@@ -5,10 +5,6 @@ gem 'rails', '3.2.8'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-group :development, :test do
-    gem 'sqlite3'
-end
-
 group :production do
     gem 'pg'
 end
@@ -31,6 +27,7 @@ end
 
 group :development, :test do # development so generators work
     gem 'rspec-rails', '~> 2.0'
+    gem 'sqlite3'
 end
 
 gem 'jquery-rails'
