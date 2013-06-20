@@ -2,7 +2,6 @@ class FriendshipsController < ApplicationController
 
     def index
         if current_user
-            Rails.logger.error current_user.friendships.count
             @friendships = current_user.friendships(include: :friendships_friends)
             respond_to do |format|
                 format.html

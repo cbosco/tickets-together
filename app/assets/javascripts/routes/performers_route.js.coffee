@@ -3,9 +3,9 @@ TicketsTogether.PerformersRoute = Ember.Route.extend(
         TicketsTogether.Performer.find()
 
     events:
-        addFriend: (params) ->
-            TicketsTogether.Friendship.createRecord(
-                friendId: params.id
+        addInterest: (performer) ->
+            TicketsTogether.Interest.createRecord(
+                performerId: performer.id
             ).save()
                 .then =>
                     # TODO: feedback
