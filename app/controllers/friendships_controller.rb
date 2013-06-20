@@ -22,7 +22,7 @@ class FriendshipsController < ApplicationController
     end
 
     def create
-        id = params[:friendship][:friend_id]
+        id = params[:friendship][:friendId]
         @friendship = current_user.friendships.find_by_friend_id(id)
         if @friendship.nil?
             @friendship = current_user.friendships.build(friend_id: id)
@@ -42,11 +42,14 @@ class FriendshipsController < ApplicationController
     end
 
     def destroy
-        @friendship = current_user.friendships.find(params[:id])
+        @friendship = current_user.friendships.find_by_friend_id(params[:id])
         @friendship.destroy
         flash[:notice] = "Removed friendship."
         # manage friendships on my profile page
-        redirect_to current_user
+        respond_to do |format|
+            format.html { redirect_to current_user }
+            format.json { render json: {}, status: :accepted }
+        end
     end
 
 end

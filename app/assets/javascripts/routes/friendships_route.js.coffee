@@ -3,12 +3,9 @@ TicketsTogether.FriendshipsRoute = Ember.Route.extend(
         TicketsTogether.Friendship.find()
 
     events:
-        removeFriend: (params) ->
-            TicketsTogether.Friendship.removeRecord(
-                friendId: params.id
-            ).save()
-                .then =>
-                    # TODO: feedback
+        removeFriend: (friendship) ->
+            friendship.deleteRecord().save()
+            friendship.get('transaction').commit()
 
 )
 
