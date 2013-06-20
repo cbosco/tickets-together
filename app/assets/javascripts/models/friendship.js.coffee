@@ -1,4 +1,4 @@
 TicketsTogether.Friendship = DS.Model.extend
-    user_id: DS.attr('number')
-    friend_id: DS.attr('number')
+    userId: DS.attr('number')
+    friendId: DS.attr('number')
     friend: DS.belongsTo('TicketsTogether.User')

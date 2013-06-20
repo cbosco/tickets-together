@@ -5,7 +5,7 @@ TicketsTogether.UsersRoute = Ember.Route.extend(
     events:
         addFriend: (user) ->
             friendship = TicketsTogether.Friendship.createRecord(
-                friend_id: user.get('id')
+                friend: user
             )
             friendship.save()
                 .then =>
