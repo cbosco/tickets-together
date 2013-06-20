@@ -1,11 +1,23 @@
 class InterestsController < ApplicationController
     def index
         if current_user
-            @interests = current_user.interests
+            unless params[:fromFriend]
+
+                @interests = current_user.interests
+                @interests.map{ |i| i.from_friend = (i.user_id != current_user.id) }
+
+            else
+                @interests = []
+                current_user.friends.each do |f|
+                    @interests.concat(f.interests)
+                end
+                @interests.map{|i| i.from_friend = true}
+            end
+
             respond_to do |format|
                 format.html
                 format.json { 
-                    render json: @interests.as_json(only:[:performer_id])
+                    render json: @interests.as_json(only:[:performer_id], methods: :from_friend)
                 }
             end
         else
