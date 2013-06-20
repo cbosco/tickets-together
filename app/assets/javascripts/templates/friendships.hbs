@@ -2,7 +2,7 @@
 <ul>
     {{#each friendship in controller}}
         <li>
-            {{friendship.friendId}} - {{friendship.friend.email}} 
+            {{friendship.friend_id}} - {{friendship.friend.email}} 
                 (<a {{action removeFriend friendship}}>Remove friend</a>)
         </li>
     {{/each}}

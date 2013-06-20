@@ -1,3 +1,14 @@
+TicketsTogether.Serializer = DS.JSONSerializer.extend
+    primaryKey: (type) ->
+        if type == TicketsTogether.Friendship
+            return 'friend_id'
+        else
+            return 'id'
+
+
+TicketsTogether.Adapter = DS.RESTAdapter.extend
+    serializer: TicketsTogether.Serializer.create()
+
 TicketsTogether.Store = DS.Store.extend
-    adapter: DS.RESTAdapter.create()
+    adapter: TicketsTogether.Adapter.create()
 
