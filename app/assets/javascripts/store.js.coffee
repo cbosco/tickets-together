@@ -1,4 +1,4 @@
-TicketsTogether.Serializer = DS.RESTSerializer.extend
+TicketsTogether.Serializer = DS.JSONSerializer.extend
     primaryKey: (type) ->
         if type == TicketsTogether.Friendship
             return 'friend_id'

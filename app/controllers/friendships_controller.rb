@@ -20,7 +20,7 @@ class FriendshipsController < ApplicationController
     end
 
     def create
-        id = params[:friendship][:friendId]
+        id = params[:friendship][:friend_id]
         @friendship = current_user.friendships.find_by_friend_id(id)
         if @friendship.nil?
             @friendship = current_user.friendships.build(friend_id: id)

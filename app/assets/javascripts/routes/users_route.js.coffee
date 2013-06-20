@@ -3,10 +3,11 @@ TicketsTogether.UsersRoute = Ember.Route.extend(
         TicketsTogether.User.find()
 
     events:
-        addFriend: (params) ->
-            TicketsTogether.Friendship.createRecord(
-                friendId: params.id
-            ).save()
+        addFriend: (user) ->
+            friendship = TicketsTogether.Friendship.createRecord(
+                friend_id: user.get('id')
+            )
+            friendship.save()
                 .then =>
                     # TODO: feedback
 
