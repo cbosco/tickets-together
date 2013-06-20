@@ -13,6 +13,9 @@ TicketsTogether.Adapter = DS.RESTAdapter.extend
 TicketsTogether.Adapter.map(TicketsTogether.Friendship, {
   friend: { embedded: 'always' }
 });
+TicketsTogether.Adapter.map(TicketsTogether.Interest, {
+  performer: { embedded: 'always' }
+});
 
 TicketsTogether.Store = DS.Store.extend
     adapter: TicketsTogether.Adapter.create()

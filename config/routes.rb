@@ -5,7 +5,7 @@ TicketsTogether::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy, :show]
   resources :friendships, only: [:index, :create, :destroy]
   resources :interests, only: [:index, :create]
-  resources :performers, only: [:index, :create]
+  resources :performers, only: [:index, :show]
 
   root to: "home#index"
 

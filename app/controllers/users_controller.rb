@@ -1,10 +1,17 @@
 class UsersController < ApplicationController
 
     def index
-        @users = User.all.delete_if{|u| u == current_user }
-        respond_to do |format|
-            format.html
-            format.json { render json: @users.as_json(only:[:id, :email]) }
+        if current_user
+            @users = User.all.delete_if{|u| u == current_user }
+            respond_to do |format|
+                format.html
+                format.json { render json: @users.as_json(only:[:id, :email]) }
+            end
+        else
+            respond_to do |format|
+                format.html
+                format.json { render json: {} }
+            end
         end
     end
 

@@ -1,0 +1,13 @@
+<ul class="thumbnails">
+    {{#each interest in controller}}
+        <li class="span3">
+
+            <div class="thumbnail">
+                <img {{bindAttr src="interest.performer.image"}} />
+                <h3><a {{bindAttr href="interest.performer.url"}}
+                    {{interest.performer.name}}
+                </a></h3>
+            </div>
+        </li>
+    {{/each}}
+</ul>

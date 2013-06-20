@@ -1,5 +1,6 @@
-TicketsTogether.UsersRoute = Ember.Route.extend(
+TicketsTogether.UsersIndexRoute = Ember.Route.extend(
     model: ->
+        # TODO: exclude currentUser client-side as well
         TicketsTogether.User.find()
 
     events:

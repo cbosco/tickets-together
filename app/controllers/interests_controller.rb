@@ -18,12 +18,23 @@ class InterestsController < ApplicationController
     end
 
     def create
+        @interest = nil
+        # (this is a seatgeek ID)
         id = params[:interest][:performer_id]
-        @interest = current_user.interests.find_by_performer_id(id)
-        if @interest.nil?
-            @interest =  Interest.new(user_id: current_user.id, performer_id: id)
+        p = Performer.find_by_seatgeek_id(id)
+        unless p.nil?
+            @interest = current_user.interests.find_by_performer_id(p.id)
         end
-        if @interest.save
+        if @interest.nil?
+
+            if p.nil?
+                p = Performer.new(seatgeek_id: id)
+            end
+            @interest = Interest.new
+            @interest.performer = p
+            current_user.interests << @interest
+        end
+        if p.save && current_user.save && @interest.save
             respond_to do |format|
                 format.html {
                     flash[:notice] = "Added interest."
