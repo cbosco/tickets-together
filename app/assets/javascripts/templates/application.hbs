@@ -1,12 +1,19 @@
 <h2 id="logo">TicketsTogether</h2>
 
-{{#if currentUser.isSignedIn}}
-    Logged in as {{currentUser.email}}
-    ({{#linkTo sessions.destroy}}Logout{{/linkTo}})
-{{else}}
-    {{#linkTo users.new}}Sign Up{{/linkTo}} |
-    {{#linkTo sessions.new}}Login{{/linkTo}}
-{{/if}}
+<div class="nav">
+    {{#if currentUser.isSignedIn}}
+        Logged in as {{currentUser.email}}
+        &bull;
+        {{#linkTo users}}Add Friends{{/linkTo}}
+        &bull;
+        {{#linkTo friendships}}Manage Friends{{/linkTo}}
+        &bull;
+        {{#linkTo sessions.destroy}}Logout{{/linkTo}}
+    {{else}}
+        {{#linkTo users.new}}Sign Up{{/linkTo}} |
+        {{#linkTo sessions.new}}Login{{/linkTo}}
+    {{/if}}
+</div>
 
 <div id="content">
     {{outlet}}
