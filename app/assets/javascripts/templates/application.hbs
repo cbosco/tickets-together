@@ -41,5 +41,12 @@
 
 
 <div class="container">
+    <p class="lead">Where you and your friends find your next show</p>
+    <div class="well">
+        {{#linkTo users.new classNames="btn btn-inverse btn-large"}}All Performers{{/linkTo}}
+        {{#linkTo users.new classNames="btn btn-inverse btn-large"}}My Favorites{{/linkTo}}
+        {{#linkTo users.new classNames="btn btn-inverse btn-large"}}My Friends' Favorites{{/linkTo}}
+    </div>
+
     {{outlet}}
 </div>
