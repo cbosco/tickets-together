@@ -1,11 +1,15 @@
 <h1>List of all users </h1>
-<ul>
+<table class="table table-striped">
     {{#each user in controller}}
-        <li>
+    <tr>
+        <td>
             {{user.email}} 
+        </td>
+        <td>
             {{#if currentUser.isSignedIn}}
-                (<a {{action addFriend user}}>Add friend</a>)
+                <a class="btn btn-mini btn-success" {{action addFriend user}}>Add friend</a>
             {{/if}}
-        </li>
+        </td>
+    </tr>
     {{/each}}
 </ul>

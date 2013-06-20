@@ -1,20 +1,45 @@
-<h2 id="logo">TicketsTogether</h2>
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="brand" href="#">TicketsTogether</a>
+      <div class="nav-collapse collapse">
 
-<div class="nav">
-    {{#if currentUser.isSignedIn}}
-        Logged in as {{currentUser.email}}
-        &bull;
-        {{#linkTo users}}Add Friends{{/linkTo}}
-        &bull;
-        {{#linkTo friendships}}Manage Friends{{/linkTo}}
-        &bull;
-        {{#linkTo sessions.destroy}}Logout{{/linkTo}}
-    {{else}}
-        {{#linkTo users.new}}Sign Up{{/linkTo}} |
-        {{#linkTo sessions.new}}Login{{/linkTo}}
-    {{/if}}
+        {{#if currentUser.isSignedIn}}
+        <p class="navbar-text pull-right">
+            Logged in as {{currentUser.email}}
+        </p>
+        <ul class="nav">
+            <li>
+            {{#linkTo users}}Add Friends{{/linkTo}}
+            </li>
+            <li>
+            {{#linkTo friendships}}Manage Friends{{/linkTo}}
+            </li>
+            <li>
+            {{#linkTo sessions.destroy}}Logout{{/linkTo}}
+            </li>
+        </ul>
+        {{else}}
+        <ul class="nav">
+            <li>
+            {{#linkTo users.new}}Sign Up{{/linkTo}}
+            </li>
+            <li>
+            {{#linkTo sessions.new}}Login{{/linkTo}}
+            </li>
+        </ul>
+        {{/if}}
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
 </div>
 
-<div id="content">
+
+<div class="container">
     {{outlet}}
 </div>

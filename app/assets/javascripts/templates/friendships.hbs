@@ -1,9 +1,13 @@
 <h1>Your friends</h1>
-<ul>
+<table class="table table-striped">
     {{#each friendship in controller}}
-        <li>
-            {{friendship.friendId}} - {{friendship.friend.email}} 
-                (<a {{action removeFriend friendship}}>Remove friend</a>)
-        </li>
+    <tr>
+        <td>
+            {{friendship.friend.email}} 
+        </td>
+        <td>
+            <a class="btn btn-mini btn-danger" {{action removeFriend friendship}}>Remove friend</a>
+        </td>
+    </tr>
     {{/each}}
 </ul>
