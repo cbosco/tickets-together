@@ -1,4 +1,4 @@
 language: ruby
 rvm:
     - 1.9.2
-script: rake spec
+script: rake db:migrate\nrake spec
